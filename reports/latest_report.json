@@ -1,5 +1,32 @@
-{
-    "question": "Explain reinforcement learning in simple terms.",
-    "answer": "This is a sample response from AgentArmor.",
-    "relevance_score": 90
-}
+[
+    {
+        "question": "What is machine learning?",
+        "answer": "This is a sample response from AgentArmor.",
+        "metrics": {
+            "relevance": 90,
+            "accuracy": 85,
+            "hallucination": 5,
+            "latency": 7.152557373046875e-07
+        }
+    },
+    {
+        "question": "What is reinforcement learning?",
+        "answer": "This is a sample response from AgentArmor.",
+        "metrics": {
+            "relevance": 90,
+            "accuracy": 85,
+            "hallucination": 5,
+            "latency": 9.5367431640625e-07
+        }
+    },
+    {
+        "question": "Explain neural networks.",
+        "answer": "This is a sample response from AgentArmor.",
+        "metrics": {
+            "relevance": 90,
+            "accuracy": 85,
+            "hallucination": 5,
+            "latency": 4.76837158203125e-07
+        }
+    }
+]
