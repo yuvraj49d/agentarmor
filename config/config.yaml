@@ -1,0 +1,23 @@
+provider: dummy
+
+model: dummy-model
+
+attack_suite:
+
+  - prompt_injection
+
+reports:
+
+  json: true
+
+  csv: false
+
+  html: false
+
+evaluation:
+
+  security: true
+
+  deepeval: false
+
+output_directory: reports/
