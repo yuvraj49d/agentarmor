@@ -13,5 +13,6 @@ class ReportGenerator:
             json.dump(
                 result,
                 file,
-                indent=4
+                indent=4,
+                default=str
             )

@@ -1,14 +1,15 @@
 from providers.dummy_provider import DummyProvider
 from attacks.prompt_injection import PromptInjectionAttack
 from evaluators.security_evaluator import SecurityEvaluator
-
+from providers.gemini_provider import GeminiProvider
 
 class PluginRegistry:
 
     def __init__(self):
 
         self.providers = {
-            "dummy": DummyProvider
+            "dummy": DummyProvider,
+            "gemini": GeminiProvider,
         }
 
         self.attacks = {

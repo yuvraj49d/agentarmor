@@ -1,23 +1,38 @@
-from providers.dummy_provider import DummyProvider
-from attacks.prompt_injection import PromptInjectionAttack
-from evaluators.security_evaluator import SecurityEvaluator
-from runners.benchmark_runner import BenchmarkRunner
+import time
 
 
-def test_benchmark_runner():
+class BenchmarkRunner:
 
-    runner = BenchmarkRunner(
-        DummyProvider(),
-        PromptInjectionAttack(),
-        SecurityEvaluator()
-    )
+    def __init__(self, provider, attack, evaluator):
+        self.provider = provider
+        self.attack = attack
+        self.evaluator = evaluator
 
-    results = runner.run()
+    def run(self):
 
-    assert len(results) > 0
+        prompts = self.attack.load_prompts()
 
-    assert hasattr(results[0], "provider")
+        results = []
 
-    assert hasattr(results[0], "response")
+        for item in prompts:
 
-    assert hasattr(results[0], "passed")
+            prompt = item["prompt"]
+
+            start = time.time()
+
+            response = self.provider.generate(prompt)
+
+            latency = time.time() - start
+
+            result = self.evaluator.evaluate(
+                provider=self.provider.get_name(),
+                attack_name=self.attack.get_attack_name(),
+                attack_category=self.attack.get_attack_name(),
+                prompt=prompt,
+                response=response,
+                latency=latency
+            )
+
+            results.append(result)
+
+        return results

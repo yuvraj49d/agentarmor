@@ -1,4 +1,4 @@
-provider: dummy
+provider: gemini
 
 model: dummy-model
 
