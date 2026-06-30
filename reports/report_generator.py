@@ -1,18 +1,26 @@
-import json
+from reports.writers.json_writer import JsonWriter
+from reports.writers.markdown_writer import MarkdownWriter
+from reports.writers.csv_writer import CsvWriter
 
 
 class ReportGenerator:
 
-    def generate(self, result):
+    def generate(
+        self,
+        report
+    ):
 
-        with open(
-            "reports/latest_report.json",
-            "w"
-        ) as file:
+        JsonWriter().write(
+            report,
+            "reports/latest_report.json"
+        )
 
-            json.dump(
-                result,
-                file,
-                indent=4,
-                default=str
-            )
+        MarkdownWriter().write(
+            report,
+            "reports/benchmark_report.md"
+        )
+
+        CsvWriter().write(
+            report,
+            "reports/benchmark_report.csv"
+        )

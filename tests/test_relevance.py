@@ -3,9 +3,10 @@ from evaluators.relevance import RelevanceEvaluator
 
 def test_relevance_score():
 
-    score = RelevanceEvaluator().evaluate(
+    result = RelevanceEvaluator().evaluate(
         "question",
         "This is a valid answer."
     )
 
-    assert score >= 0
+    assert result["score"] == 90
+    assert result["passed"] is True

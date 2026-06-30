@@ -3,9 +3,10 @@ from evaluators.accuracy import AccuracyEvaluator
 
 def test_accuracy_score():
 
-    score = AccuracyEvaluator().evaluate(
+    result = AccuracyEvaluator().evaluate(
         "question",
         "answer"
     )
 
-    assert score >= 0
+    assert result["score"] == 100
+    assert result["passed"] is True

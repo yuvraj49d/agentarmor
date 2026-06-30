@@ -1,8 +1,21 @@
-class RelevanceEvaluator:
+from evaluators.base_evaluator import BaseEvaluator
 
-    def evaluate(self, question, answer):
 
-        if answer and len(answer) > 20:
-            return 90
+class RelevanceEvaluator(BaseEvaluator):
 
-        return 50
+    def get_name(self):
+        return "relevance"
+
+    def evaluate(
+        self,
+        prompt,
+        response,
+        attack=None
+    ):
+        score = 90
+
+        return {
+            "score": score,
+            "passed": score >= 70,
+            "reason": "Relevant response"
+        }
