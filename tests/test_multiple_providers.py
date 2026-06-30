@@ -1,11 +1,10 @@
 from config.config_loader import ConfigLoader
 
 
-def test_load_config():
+def test_multiple_providers():
 
     config = ConfigLoader(
         "config/config.yaml"
     ).load()
 
-    assert "providers" in config
-    assert len(config["providers"]) >= 1
+    assert len(config["providers"]) >= 2

@@ -3,6 +3,7 @@ from attacks.prompt_injection import PromptInjectionAttack
 from evaluators.security_evaluator import SecurityEvaluator
 from providers.gemini_provider import GeminiProvider
 from attacks.system_prompt_leakage import SystemPromptLeakageAttack
+from attacks.jailbreak import JailbreakAttack
 
 class PluginRegistry:
 
@@ -15,6 +16,7 @@ class PluginRegistry:
 
         self.attacks = {
             "prompt_injection": PromptInjectionAttack,
+            "jailbreak": JailbreakAttack,
             "system_prompt_leakage": SystemPromptLeakageAttack
         }
 
