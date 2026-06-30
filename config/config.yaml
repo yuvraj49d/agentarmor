@@ -3,8 +3,12 @@ provider: dummy
 model: dummy-model
 
 attack_suite:
-
   - prompt_injection
+  - jailbreak
+  - role_override
+  - harmful_content
+  - data_leakage
+  - system_prompt_leakage
 
 reports:
 

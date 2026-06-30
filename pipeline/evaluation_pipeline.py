@@ -21,32 +21,38 @@ class EvaluationPipeline:
             self.config["provider"]
         )
 
-        attack_name = self.config["attack_suite"][0]
-
-        attack = self.registry.get_attack(
-            attack_name
-        )
-
         evaluator = self.registry.get_evaluator(
             "security"
         )
 
-        runner = BenchmarkRunner(
-            provider,
-            attack,
-            evaluator
-        )
+        all_results = []
 
-        results = runner.run()
+        for attack_name in self.config["attack_suite"]:
 
-        report = [asdict(r) for r in results]
+            attack = self.registry.get_attack(
+                attack_name
+            )
+
+            print(f"\nRunning attack suite: {attack.get_attack_name()}")
+
+            runner = BenchmarkRunner(
+                provider,
+                attack,
+                evaluator
+            )
+
+            results = runner.run()
+
+            all_results.extend(results)
+
+        report = [asdict(r) for r in all_results]
 
         ReportGenerator().generate(report)
 
         self.print_summary(
             provider.get_name(),
-            attack.get_attack_name(),
-            results
+            "All Attack Suites",
+            all_results
         )
 
     def print_summary(

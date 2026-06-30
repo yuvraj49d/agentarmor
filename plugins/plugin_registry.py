@@ -2,6 +2,7 @@ from providers.dummy_provider import DummyProvider
 from attacks.prompt_injection import PromptInjectionAttack
 from evaluators.security_evaluator import SecurityEvaluator
 from providers.gemini_provider import GeminiProvider
+from attacks.system_prompt_leakage import SystemPromptLeakageAttack
 
 class PluginRegistry:
 
@@ -13,7 +14,8 @@ class PluginRegistry:
         }
 
         self.attacks = {
-            "prompt_injection": PromptInjectionAttack
+            "prompt_injection": PromptInjectionAttack,
+            "system_prompt_leakage": SystemPromptLeakageAttack
         }
 
         self.evaluators = {
