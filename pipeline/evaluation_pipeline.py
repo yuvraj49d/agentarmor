@@ -17,10 +17,6 @@ class EvaluationPipeline:
 
     def run(self):
 
-        evaluator = self.registry.get_evaluator(
-            "security"
-        )
-
         leaderboard = []
 
         for provider_name in self.config["providers"]:
@@ -48,8 +44,7 @@ class EvaluationPipeline:
 
                     runner = BenchmarkRunner(
                         provider,
-                        attack,
-                        evaluator
+                        attack
                     )
 
                     results = runner.run()
