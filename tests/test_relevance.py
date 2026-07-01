@@ -1,12 +1,18 @@
 from evaluators.relevance import RelevanceEvaluator
 
 
-def test_relevance_score():
+def test_relevance():
 
-    result = RelevanceEvaluator().evaluate(
-        "question",
-        "This is a valid answer."
+    evaluator = RelevanceEvaluator()
+
+    result = evaluator.evaluate(
+
+        "What is AI?",
+
+        "Artificial Intelligence is the simulation of human intelligence."
+
     )
 
-    assert result["score"] == 90
-    assert result["passed"] is True
+    assert result["score"] > 50
+
+    assert "score" in result

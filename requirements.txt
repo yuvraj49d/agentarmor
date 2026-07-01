@@ -5,3 +5,11 @@ pydantic
 PyYAML
 google-genai
 deepeval
+sentence-transformers
+torch
+scikit-learn
+fastapi
+uvicorn
+pydantic
+streamlit
+pandas
