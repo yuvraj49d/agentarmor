@@ -1,6 +1,9 @@
 providers:
   - dummy
   - gemini
+  - openai
+  - ollama
+  - anthropic
 
 model: dummy-model
 
@@ -8,6 +11,10 @@ attack_suite:
   - prompt_injection
   - jailbreak
   - system_prompt_leakage
+  - harmful_content
+  - data_leakage
+  - bias
+  - role_override
 
 reports:
 
