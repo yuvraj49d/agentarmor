@@ -8,7 +8,8 @@ class MarkdownWriter:
 
         with open(
             filename,
-            "w"
+            "w",
+            encoding="utf-8"
         ) as file:
 
             file.write(
@@ -25,7 +26,7 @@ class MarkdownWriter:
 
             for row in report:
 
-                status = "✅" if row["passed"] else "❌"
+                status = "PASS" if row["passed"] else "❌"
 
                 file.write(
 
