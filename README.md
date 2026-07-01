@@ -654,10 +654,6 @@ Overall Score : 93.0
 Risk Level    : LOW
 ```
 
-## HTML Report
-
-![HTML Report](docs/images/report.png)
-
 ---
 
 # 📈 Provider Leaderboard

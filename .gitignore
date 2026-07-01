@@ -227,3 +227,9 @@ reports/*.html
 !reports/.gitkeep
 
 .deepeval/.deepeval_telemetry.txt
+
+reports/*.csv
+reports/*.json
+reports/*.html
+reports/*.md
+!reports/.gitkeep
